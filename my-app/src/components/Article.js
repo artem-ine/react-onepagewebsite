@@ -1,13 +1,13 @@
-import { PrismicRichText, useFirstPrismicDocument, PrismicImage } from '@prismicio/react'
+import { PrismicRichText, usePrismicDocumentByUID, PrismicImage } from '@prismicio/react'
 
 function Article() {
-    const [document] = useFirstPrismicDocument()
+const [document] = usePrismicDocumentByUID('article', 'lorem-ipsum')
 
     return (
       <div>
-        {document && (
-          <PrismicRichText field={document.data.homepage} />
-        )}
+        <PrismicRichText field={document?.data.title} />
+        <PrismicRichText field={document?.data.description} />
+        <PrismicImage field={document?.data.image}  imgixParams={{ sat: -30 }} />
       </div>
     )
   }
