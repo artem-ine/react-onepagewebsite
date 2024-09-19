@@ -1,7 +1,9 @@
 import { PrismicRichText, usePrismicDocumentByUID, PrismicImage } from '@prismicio/react'
+import { useParams } from 'react-router-dom';
 
 function Article() {
-const [document] = usePrismicDocumentByUID('article', 'lorem-ipsum')
+  const { uid } = useParams();
+  const [document] = usePrismicDocumentByUID('article', uid)
 
     return (
       <div>
