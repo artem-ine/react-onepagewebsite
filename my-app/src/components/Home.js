@@ -5,9 +5,8 @@ function Home() {
 
     return (
       <div>
-        {document && (
-          <PrismicRichText field={document.data.homepage} />
-        )}
+            <PrismicRichText field={document?.data.homepage} />
+            <PrismicImage field={document?.data.home_image}  imgixParams={{ sat: -30 }} />
       </div>
     )
   }
