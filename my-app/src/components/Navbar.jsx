@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAllPrismicDocumentsByType, useFirstPrismicDocument } from "@prismicio/react";
+import { useAllPrismicDocumentsByType, useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 
 
 const Navbar = () => {
 
-    const [doc] = useFirstPrismicDocument()
+  const [doc] = useSinglePrismicDocument('home')
   const [articles] = useAllPrismicDocumentsByType('article')
   console.log(articles)
 

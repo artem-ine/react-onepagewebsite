@@ -1,7 +1,8 @@
-import { PrismicRichText, useFirstPrismicDocument, PrismicImage } from '@prismicio/react'
+import { PrismicRichText, useSinglePrismicDocument, PrismicImage } from '@prismicio/react'
 
 function Home() {
-    const [document] = useFirstPrismicDocument()
+  const [document] = useSinglePrismicDocument('home')
+  console.log(document?.data)
 
     return (
       <div>
