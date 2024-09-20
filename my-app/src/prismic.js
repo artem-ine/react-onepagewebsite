@@ -8,8 +8,12 @@ export const client = prismic.createClient(repositoryName, {
 
   routes: [
     {
-        type: 'home',
-        path: '/',
-      },  
+      type: 'home',
+      path: '/',
+    },
+    {
+      type: 'article',
+      path: '/article/:uid',
+    },  
   ],
 })

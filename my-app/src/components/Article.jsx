@@ -8,9 +8,6 @@ import './Components.css'
 function Article() {
   const { uid } = useParams();
   const [document] = usePrismicDocumentByUID('article', uid);
-  const image = document?.data.image
-  const formattedImage = prismicH.asImageWidthSrcSet(image)
-  console.log(formattedImage)  
   
   const serializer = {
     heading2: ({ children }) => {

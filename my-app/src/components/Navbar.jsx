@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSinglePrismicDocument } from "@prismicio/react";
+import { useSinglePrismicDocument, usePrismicDocumentByUID } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicLink } from '@prismicio/react'
 
 const Navbar = () => {
 
-  const [document] = useSinglePrismicDocument('navbar')
+  const [document] = useSinglePrismicDocument('navigation')
+console.log(document?.data.test_article);
+
 
   return (
     <nav>
@@ -15,10 +17,10 @@ const Navbar = () => {
           <PrismicLink field={document?.data.home_link}>Home</PrismicLink>
         </li>
         <li>
-          <PrismicLink field={document?.data.article_links.first_article}>Lorem Ipsum</PrismicLink>
+          <PrismicLink field={document?.data.first_article}>Lorem Ipsum</PrismicLink>
         </li>
         <li>
-          <PrismicLink field={document?.data.article_links.second_article}>Sed Ut</PrismicLink>
+          <PrismicLink field={document?.data.second_article}>Sed Ut</PrismicLink>
         </li>
         <li>
           <PrismicLink field={document?.data.third_article}>At Vero</PrismicLink>
