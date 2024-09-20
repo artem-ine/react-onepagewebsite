@@ -2,8 +2,7 @@ import { PrismicRichText, usePrismicDocumentByUID, PrismicImage } from '@prismic
 import { useParams } from 'react-router-dom';
 import * as prismic from '@prismicio/client'
 import * as prismicH from '@prismicio/helpers'
-import PigLatin from "pig-latinizer"
-
+import './Article.css'
 
 
 function Article() {
@@ -25,12 +24,15 @@ function Article() {
   
   
   const serializer = {
-    // heading1: ({ children }) => {
-    //   const pigLatinContent = toPigLatin(children);
-    //   console.log(pigLatinContent)
-    //   return <h1>{pigLatinContent}</h1>;
-    // },
+    heading2: ({ children }) => {
+      console.log("children: ", children)
+      const titleAsText = prismicH.asText(children)
+      const pigLatinContent = toPigLatin(titleAsText);
+      console.log(pigLatinContent)
+      return <h1>{pigLatinContent}</h1>;
+    },
     preformatted: ({ children }) => {
+      // console.log("pre children: ", children)
       return <code>{children}</code>;
     }
   };
@@ -40,7 +42,7 @@ function Article() {
     <div>
     <PrismicRichText field={document?.data.title} components={serializer}/>
     <PrismicRichText field={document?.data.description} components={serializer}/>
-    <PrismicImage field={document?.data.image} imgixParams={{ sat: -30 }} />
+    <PrismicImage field={document?.data.image} imgixParams={{ sat: -30 }} className='article-image' />
     {/* <img src={formattedImage.src} alt="dog"/> */}
     <p>{document?.data.date}</p>
     </div>
