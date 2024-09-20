@@ -14,6 +14,10 @@ export const client = prismic.createClient(repositoryName, {
     {
       type: 'article',
       path: '/article/:uid',
-    },  
+    }, 
+    // {
+    //   type: 'page',
+    //   path: '/preview',
+    // },  
   ],
 })
