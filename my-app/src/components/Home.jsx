@@ -1,4 +1,5 @@
 import { PrismicRichText, useSinglePrismicDocument, PrismicImage } from '@prismicio/react'
+import './Components.css'
 
 function Home() {
   const [document] = useSinglePrismicDocument('home')
@@ -7,7 +8,7 @@ function Home() {
     return (
       <div>
           <PrismicRichText field={document?.data.homepage} />
-          <PrismicImage field={document?.data.home_image}  imgixParams={{ sat: -30 }} />
+          <PrismicImage field={document?.data.home_image}  imgixParams={{ sat: -30 }} className="home-image"/>
       </div>
     )
   }

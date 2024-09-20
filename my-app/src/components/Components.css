@@ -1,0 +1,15 @@
+.article-image {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2px;
+  }
+
+.home-image {
+    width: 100%;
+    object-fit: cover;
+    margin: 2px;
+  }
+
+p {
+    margin: 5px;
+}
